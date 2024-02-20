@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote of the Day</title>
+</head>
+<body>
+    <div id="quoteDisplay" style="text-align: center; margin-top: 20px; font-size: 24px;"></div>
+
+    <script>
+        const quotes = {
+            Sunday: {
+                morning: "“Do not let Sunday be taken from you. If your soul has no Sunday, it becomes an orphan.” - Albert Schweitzer",
+                afternoon: "“Sunday, the day for the language of leisure.” - Elfriede Jelinek"
+            },
+            Monday: {
+                morning: "“This has been such a Monday! I wish I stayed in bed, and I wish that yesterday had never happened.” - Lisa Mantchev",
+                afternoon: "“There are a million ways to lose a work day, but not even a single way to get one back.” - Tom DeMarco and Timothy Lister"
+            },
+            Tuesday: {
+                morning: "“Tuesday is neither here nor there in the hierarchy of the week.” - Anthony T. Hincks",
+                afternoon: "“Tuesday’s child is full of grace.” - Traditional Nursery Rhyme"
+            },
+            Wednesday: {
+                morning: "“On Wednesdays we wear pink.” - Mean Girls",
+                afternoon: "“It's Wednesday! I'm breathing. I'm healthy. I'm truly blessed. I'm grateful for this day.” - Unknown"
+            },
+            Thursday: {
+                morning: "“Thursday, I forecast as mostly sunny. It’s a much-needed break.” - John Farley",
+                afternoon: "“Thursday is perhaps the worst day of the week. It's nothing in itself; it just reminds you that the week has been going on too long.” - Nicci French"
+            },
+            Friday: {
+                morning: "“Friday sees more smiles than any other day of the workweek!” - Kate Summers",
+                afternoon: "“It's Friday afternoon. Feel free to make an early start to your weekend.” - Unknown"
+            },
+            Saturday: {
+                morning: "“Saturday morning was come, and all the summer world was bright and fresh, and brimming with life.” - Mark Twain",
+                afternoon: "“My work is like my vacation, so in a way every day is like Saturday.” - Ludacris"
+            }
+        };
+
+        function getQuoteOfTheDay() {
+            const now = new Date();
+            const dayOfWeek = now.toLocaleString('en-us', {weekday: 'long'});
+            const hour = now.getHours();
+            const partOfDay = hour < 12 ? 'morning' : 'afternoon';
+
+            // Select the quote based on the current day and time of day
+            const quote = quotes[dayOfWeek][partOfDay];
+
+            // Display the quote in the designated div
+            document.getElementById('quoteDisplay').innerText = quote;
+        }
+
+        // Call the function when the page loads
+        window.onload = getQuoteOfTheDay;
+    </script>
+</body>
+</html>
+
+
